@@ -1,0 +1,10 @@
+on:
+  issue_comment:
+    types: [created]
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    if: github.event.issue.number == 1 && github.event.comment.user.login == 'tc2000731'
+    steps:
+      - name: Print comment
+        run: echo The comment is $ { { github.event.comment.body }}
