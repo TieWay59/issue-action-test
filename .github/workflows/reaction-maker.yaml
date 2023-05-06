@@ -6,14 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.issue.number == 1 && github.event.comment.user.login == 'tieway59'
     steps:
-      - name: Add eyes reaction
-        uses: actions/github-script@v4
-        with:
-          script: |
-            const {owner, repo} = context.issue
-            github.reactions.createForIssueComment({
-              owner,
-              repo,
-              comment_id: context.payload.comment.id,
-              content: 'eyes',
-            });
+      - name: Print comment
+        run: echo The comment is $ { { github.event.comment.body }}
