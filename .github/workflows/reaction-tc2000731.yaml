@@ -3,9 +3,9 @@ on:
   issue_comment:
     types: [created]
 jobs:
-  react:
+  reaction:
     runs-on: ubuntu-latest
-    if: github.event.issue.number == 1 && github.event.comment.user.login == 'tc2000731'
+    if: ${{ contains(fromJson('["tieway59", "tc2000731"]'), github.event.sender.login) }}
     steps:
       - name: Add reaction
         run: |
